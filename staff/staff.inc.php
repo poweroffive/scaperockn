@@ -1,3 +1,9 @@
 <article>
-<p>Insert Staff here </p>
+<?php
+
+Team('SL');
+Team('Community');
+Team('Media');
+
+?>
 </article>

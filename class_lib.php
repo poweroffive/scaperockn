@@ -114,5 +114,13 @@ class Events extends baseUser {
 class User extends baseUser{
 
 }
+function Team($team){
+	$query = "SELECT Username from Users where team='$team'";
+	$query_run = mysql_query($query);
+	$array = mysql_fetch_assoc($query_run);
 
+	foreach ($array as $key) {
+		echo "<div class=$team>".$key." is a member of $team</div>";
+	}
+}
 ?>
