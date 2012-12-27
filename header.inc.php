@@ -1,5 +1,6 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="/style.css">
+	<title>ScapeRock'n</title>
 </head>
 <div class="container">
 <header>

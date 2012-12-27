@@ -22,7 +22,7 @@ if($result == "open"){
 } elseif($result == "locked"){
 	$query = "UPDATE threadsection SET status='open' where thread_id=$thread_id";
 	if(mysql_query($query)){
-		echo "Thread Re-opened. Click <a href='$redirect'>here</a> to return to thread.";
+		echo "Thread re-opened. Click <a href='$redirect'>here</a> to return to thread.";
 		unset($_SESSION['threadid']);
 	} else {
 		include "notfound.php";
