@@ -20,7 +20,7 @@ $query_run = mysql_query($query);
 $num_rows = mysql_num_rows($query_run);
 $thread_id = mysql_result($query_run, 0);
 
-$query = "INSERT INTO postsection VALUES ('','$thread_id', '$user_id', '$message','$date','$forum_id')";
+$query = "INSERT INTO postsection VALUES ('','$thread_id', '$user_id', '$message','$date','$forum_id','open')";
 $query_run = mysql_query($query);
 
 header("Location:$redirect");

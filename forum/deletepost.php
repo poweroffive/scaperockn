@@ -3,9 +3,12 @@
 if($_SESSION['team'] == "SL"){
 	$redirect = rtrim($http_referer, "true");
 
+	$forumid = $_SESSION['forumid'];
+	$threadid = $_SESSION['threadid'];
 	$post_id = $_GET['deletepost'];
 
-	if(1 == 1){
+	echo $query = "UPDATE postsection SET status='hidden' where post_id=$post_id AND thread_id=$threadid AND forum_id=$forumid";
+	if(mysql_query($query)){
 		echo "Post has been archived and deleted from the forums. You will be re-directed in 5 seconds.";
 		header("Location:index.php?forumid=$forum_id&threadid=$thread_id");
 	} else {

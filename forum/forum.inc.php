@@ -14,7 +14,6 @@
 		$threadid = $_GET['threadid'];
 		$_SESSION['threadid'] = $threadid;
 	}
-
 	
 	if(loggedin() && $_GET['forumid'] && $_GET['reply']) {
 		//	Starting a new thread

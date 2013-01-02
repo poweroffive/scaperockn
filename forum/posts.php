@@ -2,7 +2,7 @@
 $forum_id = $forumid;
 $thread_id = $threadid;
 $teamname = $user->getTeamName();
-$query = "SELECT postsection.post_id, postsection.message, postsection.postedDate, Users.Username FROM postsection JOIN Users JOIN threadsection JOIN forumsection ON postsection.poster_id=Users.Id AND postsection.thread_id=threadsection.thread_id AND postsection.forum_id=forumsection.forum_id WHERE postsection.thread_id=$thread_id AND postsection.forum_id=$forum_id ORDER BY postsection.post_id";
+$query = "SELECT postsection.post_id, postsection.message, postsection.postedDate, Users.Username, postsection.status FROM postsection JOIN Users JOIN threadsection JOIN forumsection ON postsection.poster_id=Users.Id AND postsection.thread_id=threadsection.thread_id AND postsection.forum_id=forumsection.forum_id WHERE postsection.thread_id=$thread_id AND postsection.forum_id=$forum_id ORDER BY postsection.post_id";
 $query_run = mysql_query($query);
 
 echo "<a href='index.php?forumid=$forum_id'>Up a level</a>";

@@ -1,10 +1,9 @@
 body {
-	/*background: black;*/
+	background: cyan;
 }
 
 header {
 	height: 200px;
-	/*background-color: grey;*/
 }
 
 nav {
@@ -40,6 +39,7 @@ ul li {
 	background:white;
 	margin: 0 auto;
 	padding: 20px;
+	background-color: #12CC8E;
 }
 
 .left {
@@ -56,4 +56,13 @@ td {
 
 #left {
 	left:688px;
+}
+
+a {
+	color: green;
+	text-decoration: none;
+}
+
+a:visited {
+	color:green;
 }
