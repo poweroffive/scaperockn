@@ -4,6 +4,9 @@ $thread_id = $threadid;
 $teamname = $user->getTeamName();
 $query = "SELECT postsection.post_id, postsection.message, postsection.postedDate, Users.Username FROM postsection JOIN Users JOIN threadsection JOIN forumsection ON postsection.poster_id=Users.Id AND postsection.thread_id=threadsection.thread_id AND postsection.forum_id=forumsection.forum_id WHERE postsection.thread_id=$thread_id AND postsection.forum_id=$forum_id ORDER BY postsection.post_id";
 $query_run = mysql_query($query);
+
+echo "<a href='index.php?forumid=$forum_id'>Up a level</a>";
+
 ?>
 
 <table>
@@ -14,14 +17,14 @@ $query_run = mysql_query($query);
 
 	if($num_rows = mysql_num_rows($query_run) > 0){
 		while($assoc = mysql_fetch_assoc($query_run)){
-			echo '<tr><td>'.$assoc['Username'] . ' posted</td><td> ' . $assoc['message'] . '</td><td> on ' . $assoc['postedDate'] .' </td></tr>';
+			
 			if($teamname == "SL"){
-				'<tr><td>'.$user->deletePost($assoc['post_id']).'<tr><td>';
+				echo '<tr><td>'.$assoc['Username'] . ' posted</td><td> ' . $assoc['message'] . '</td><td> on ' . $assoc['postedDate'] .' </td><td>'.$user->deletePost($assoc['post_id']).'</td></tr>';
+			} else {
+				echo '<tr><td>'.$assoc['Username'] . ' posted</td><td> ' . $assoc['message'] . '</td><td> on ' . $assoc['postedDate'] .' </td></tr>';
 			}
 		}
-
-		echo "<a href='index.php?forumid=$forum_id'>Up a level</a>";
-
+		
 		?>
 	</table>
 	<?php

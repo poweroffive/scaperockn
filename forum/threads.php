@@ -24,11 +24,11 @@ echo "<a href='index.php'>Forums</a>";
 	for($i=0; $i < $array_length; $i+=4){
 		$z = $i+1;
 		$y = $i+2;
-		echo $status = $i+3;
+		$status = $i+3;
 		if($query_array[$status] == 'closed'){
 			echo "<tr><td>Thread Hidden</td></tr>";
 		} else {
-			echo "<tr><td><a href='index.php?forumid=$forum_id&threadid=$query_array[$y]'>$query_array[$i]</a> Author: $query_array[$z]</td></tr>";
+			echo "<tr><td><a href='index.php?forumid=$forum_id&threadid=$query_array[$y]'>$query_array[$i]</a></td><td> Author: $query_array[$z]</td></tr>";
 		}
 	}
 	?>

@@ -5,9 +5,8 @@ if($_SESSION['team'] == "SL"){
 
 	$post_id = $_GET['deletepost'];
 
-	if(mysql_query($query)){
+	if(1 == 1){
 		echo "Post has been archived and deleted from the forums. You will be re-directed in 5 seconds.";
-		sleep(5);
 		header("Location:index.php?forumid=$forum_id&threadid=$thread_id");
 	} else {
 		echo "There was an issue please contact the site admin";
