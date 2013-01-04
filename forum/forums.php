@@ -1,7 +1,4 @@
-<table>
-	<tr>
-		<th>Forums</th>
-	</tr>
+<h2>Forums</h2>
 	<?php
 	if(isset($_SESSION['team'])){
 		$team = $_SESSION['team'];
@@ -25,7 +22,6 @@
 
 	for($i=0; $i < $array_length; $i+=2){
 		$z = $i+1;
-		echo "<tr><td><a href='index.php?forumid=$query_array[$z]'>$query_array[$i]</a></td></tr>";
+		echo "<div><p><a href='index.php?forumid=$query_array[$z]'>$query_array[$i]</a></div></p>";
 	}
 ?>
-</table>

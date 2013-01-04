@@ -1,7 +1,8 @@
 <article>
 	<?php
-	if($_SESSION['team'] == "SL"){
-		$user = new SL($_SESSION['name']);
+	if(isset($_SESSION['team'])){
+		$team = $_SESSION['team'];
+		$user = new $team($_SESSION['name']);
 	} else {
 		$user = new baseUser($_SESSION['name']);
 	}
@@ -33,7 +34,6 @@
 	} else {
 		// Displaying the forum sections
 		include 'forums.php';
-
 	}
 		?>
 </article>

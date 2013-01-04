@@ -89,7 +89,7 @@ class SL extends baseUser {
 	}
 
 	function deletePost($post_id){
-		echo "<a href='index.php?deletepost=$post_id'>Delete</a>";
+		return "<a href='index.php?deletepost=$post_id'>Delete</a>";
 	}
 }
 
@@ -99,6 +99,20 @@ class Community extends baseUser {
 		$this->team = "Community";
 		$_SESSION['team'] = $this->team;
 		$_SESSION['name'] = $this->name;
+	}
+
+	function deleteThread(){
+		echo "<a href='delete.php'>Delete this thread</a>";
+	}
+
+	function lockThread(){
+		echo " <a href='lock.php'>Lock/Unlock this thread</a>";
+	}
+
+	function deletePost($post_id){
+		$forumid = $_GET['forumid'];
+		$threadid = $_GET['threadid'];
+		echo "<a href='index.php?forumid=$forumid&threadid=$threadid&deletepost=$post_id'>Delete</a>";
 	}
 }
 
@@ -111,9 +125,6 @@ class Events extends baseUser {
 	}
 }
 
-class User extends baseUser{
-
-}
 function Team($team){
 	$query = "SELECT Username from Users where team='$team'";
 	$query_run = mysql_query($query);
@@ -121,6 +132,22 @@ function Team($team){
 
 	foreach ($array as $key) {
 		echo "<div class=$team>".$key." is a member of $team</div>";
+	}
+}
+
+function hidden($forumid, $threadid, $team){
+	if($team != "SL" || $team != "Community"){
+		$query = "SELECT status FROM threadsection WHERE forum_id=$forumid AND thread_id=$threadid";
+		$query_run = mysql_query($query);
+		if($query_run){
+			$return = mysql_result($query_run, 0);
+			if($return == 'closed'){
+				echo "<div><h3>Thread not found</p><a href='/forum/'>Click here to return to the forum index</a></div>";
+				return 'true';
+			} else {
+				return 'false';
+			}
+		}
 	}
 }
 ?>

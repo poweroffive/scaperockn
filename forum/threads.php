@@ -15,22 +15,29 @@ echo "<a href='index.php'>Forums</a>";
 	//print_r($query_array);
 ?>
 
-<table> 
-	<tr>
-		<th>List of Threads</th>
-	</tr>
-	<?php
-	$array_length = count($query_array);
-	for($i=0; $i < $array_length; $i+=4){
-		$z = $i+1;
-		$y = $i+2;
-		$status = $i+3;
-		if($query_array[$status] == 'closed'){
-			echo "<tr><td>Thread Hidden</td></tr>";
+
+<h3>List of Threads</h3>
+<?php
+$array_length = count($query_array);
+for($i=0; $i < $array_length; $i+=4){
+	$z = $i+1;
+	$y = $i+2;
+	$status = $i+3;
+	if($query_array[$status] == 'closed'){
+		if($team == "SL" || $team == "Community"){
+			echo "<div><p>Hidden Thread: <a href='index.php?forumid=$forum_id&threadid=$query_array[$y]'>$query_array[$i]</a> Author: $query_array[$z]</p></div>";
 		} else {
-			echo "<tr><td><a href='index.php?forumid=$forum_id&threadid=$query_array[$y]'>$query_array[$i]</a></td><td> Author: $query_array[$z]</td></tr>";
-		}
+		echo "<div><p>Thread Hidden</p></div>";
 	}
+	} else {
+		echo "<div><p><a href='index.php?forumid=$forum_id&threadid=$query_array[$y]'>$query_array[$i]</a> Author: $query_array[$z]</p></div>";
+	}
+}
+?>
+<?php 
+if(loggedin()){
 	?>
-</table>
-<a href="index.php?forumid=<?php echo $forum_id; ?>&reply=true">Create new Thread</a>
+	<a href="index.php?forumid=<?php echo $forum_id; ?>&reply=true">Create new Thread</a>
+	<?php
+}
+?>
