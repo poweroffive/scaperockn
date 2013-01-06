@@ -5,7 +5,9 @@ $teamname = $user->getTeamName();
 $query = "SELECT postsection.post_id, postsection.message, postsection.postedDate, Users.Username, postsection.status FROM postsection JOIN Users JOIN threadsection JOIN forumsection ON postsection.poster_id=Users.Id AND postsection.thread_id=threadsection.thread_id AND postsection.forum_id=forumsection.forum_id WHERE postsection.thread_id=$thread_id AND postsection.forum_id=$forum_id ORDER BY postsection.post_id";
 $query_run = mysql_query($query);
 
-if (hidden($forumid, $threadid, $team) == 'false'){
+$hidden = hidden($forumid, $threadid, $team);
+
+if ($hidden == 'false'){
 	echo "<a href='index.php?forumid=$forum_id'>Up a level</a>";
 
 	?>

@@ -136,7 +136,9 @@ function Team($team){
 }
 
 function hidden($forumid, $threadid, $team){
-	if($team != "SL" || $team != "Community"){
+	if($team == 'SL' || $team == 'Community'){
+		return 'false';
+	} else {
 		$query = "SELECT status FROM threadsection WHERE forum_id=$forumid AND thread_id=$threadid";
 		$query_run = mysql_query($query);
 		if($query_run){

@@ -7,7 +7,7 @@ if($_SESSION['team'] == "SL" || $_SESSION['team'] == "Community"){
 	$threadid = $_GET['threadid'];
 	$post_id = $_GET['deletepost'];
 
-	$query = "UPDATE postsection SET status='hidden' where post_id=$post_id AND thread_id=$threadid AND forum_id=$forumid";
+	echo $query = "UPDATE postsection SET status='hidden' where post_id=$post_id AND thread_id=$threadid AND forum_id=$forumid";
 	if(mysql_query($query)){
 		echo "Post has been archived and deleted from the forums. You will be re-directed in 5 seconds.";
 		echo $deleted = 'true';
@@ -19,5 +19,5 @@ if($_SESSION['team'] == "SL" || $_SESSION['team'] == "Community"){
 } else {
 	echo "<h1>Please don't attempt to access pages you have no authorisation for.</h1>";
 }
-var_dump($_SESSION);
+
 ?>
