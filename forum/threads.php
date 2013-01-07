@@ -5,6 +5,7 @@ $query = "SELECT threadsection.subject, Users.Username, threadsection.thread_id,
 $query_run = mysql_query($query);
 $num_rows = mysql_num_rows($query_run);
 $query_array = array();
+if($num_rows > 0){
 while($assoc = mysql_fetch_assoc($query_run)){
 	array_push($query_array, $assoc['subject']);
 	array_push($query_array, $assoc['Username']);
@@ -39,5 +40,8 @@ if(loggedin()){
 	?>
 	<a href="index.php?forumid=<?php echo $forum_id; ?>&reply=true">Create new Thread</a>
 	<?php
+}
+} else {
+	include 'notfound.php';
 }
 ?>

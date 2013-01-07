@@ -42,7 +42,7 @@ if ($hidden == 'false'){
 				</form>
 				<?php
 			} 
-
+			
 			if($result == "locked"){
 				echo "<h5>Thread has been locked</h5>";
 			}

@@ -110,9 +110,7 @@ class Community extends baseUser {
 	}
 
 	function deletePost($post_id){
-		$forumid = $_GET['forumid'];
-		$threadid = $_GET['threadid'];
-		echo "<a href='index.php?forumid=$forumid&threadid=$threadid&deletepost=$post_id'>Delete</a>";
+		return "<a href='index.php?deletepost=$post_id'>Delete</a>";
 	}
 }
 
