@@ -1,6 +1,6 @@
 <article>
 <?php
-
+if(loggedin()){
 $redirect = rtrim($http_referer, "true");
 
 $forum_id = $_SESSION['forumid'];
@@ -31,6 +31,9 @@ if($query_run = mysql_query($query)){
 	}
 } else {
 	header("Location:index.php");
+}
+} else {
+	include 'notfound.php';
 }
 
 ?>

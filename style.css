@@ -1,5 +1,7 @@
 body {
-	/*background: cyan;*/
+	background-color: #CCFFF9;
+	color: #02717D;
+	font-family:Georgia,Serif;
 }
 
 header {
@@ -8,13 +10,14 @@ header {
 
 nav {
 	width: 200px;
+	height:0;
 }
 
 article {
 	width: 700px;
 	position: relative;
 	left: 165px;
-	bottom: 157px;
+	bottom: 20px;
 }
 
 footer {
@@ -39,7 +42,7 @@ ul li {
 	background:white;
 	margin: 0 auto;
 	padding: 20px;
-/*	background-color: #12CC8E;*/
+	border-radius: 5px;
 }
 
 .left {
@@ -64,5 +67,17 @@ a {
 }
 
 a:visited {
+	color:green;
+}
+
+.media {
+	color: purple;
+}
+
+.sl {
+	color:yellow;
+}
+
+.community{
 	color:green;
 }

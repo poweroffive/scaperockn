@@ -35,7 +35,6 @@ if ($hidden == 'false'){
 
 			if($result == "open" || $teamname == "SL" || $_SESSION['team'] == "Community" ){
 				?>
-
 				<form method="POST" action="redirect.php">
 					<textarea name="message" maxlength="200"></textarea>
 					<input type="submit" value="Reply">
@@ -45,8 +44,11 @@ if ($hidden == 'false'){
 			
 			if($result == "locked"){
 				echo "<h5>Thread has been locked</h5>";
+			} elseif($result == "closed"){
+				echo "<h5>Thread is currently hidden</h5>";
 			}
 			if ($teamname == "SL" || $_SESSION['team'] == "Community") {
+				$_SESSION['status'] = $result;
 				$user->deleteThread();
 				$user->lockThread();
 			}

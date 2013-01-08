@@ -81,7 +81,7 @@ class SL extends baseUser {
 	}
 
 	function deleteThread(){
-		echo "<a href='delete.php'>Delete this thread</a>";
+		echo "<a href='delete.php'>Hide/Unhide this thread</a>";
 	}
 
 	function lockThread(){
@@ -102,7 +102,7 @@ class Community extends baseUser {
 	}
 
 	function deleteThread(){
-		echo "<a href='delete.php'>Delete this thread</a>";
+		echo "<a href='delete.php'>Hide/Unhide this thread</a>";
 	}
 
 	function lockThread(){
@@ -129,7 +129,7 @@ function Team($team){
 	$array = mysql_fetch_assoc($query_run);
 
 	foreach ($array as $key) {
-		echo "<div class=$team>".$key." is a member of $team</div>";
+		echo "<p>".$key." is a member of $team</p>";
 	}
 }
 

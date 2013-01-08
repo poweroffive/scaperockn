@@ -31,7 +31,10 @@
 	} elseif($_GET['forumid']){
 		// Displaying threads in a forum section
 		include 'threads.php';
-	} else {
+	} elseif($_GET['threadid']) {
+		//Not Found page for those tampering with links
+		include 'notfound.php';
+	} else{
 		// Displaying the forum sections
 		include 'forums.php';
 	}
