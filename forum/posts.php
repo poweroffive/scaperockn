@@ -5,7 +5,7 @@ $teamname = $user->getTeamName();
 $query = "SELECT postsection.post_id, postsection.message, postsection.postedDate, Users.Username, postsection.status FROM postsection JOIN Users JOIN threadsection JOIN forumsection ON postsection.poster_id=Users.Id AND postsection.thread_id=threadsection.thread_id AND postsection.forum_id=forumsection.forum_id WHERE postsection.thread_id=$thread_id AND postsection.forum_id=$forum_id ORDER BY postsection.post_id";
 $query_run = mysql_query($query);
 
-$hidden = hidden($forumid, $threadid, $team);
+$hidden = $user->hidden($forumid, $threadid, $team);
 
 if ($hidden == 'false'){
 	echo "<a href='index.php?forumid=$forum_id'>Up a level</a>";
@@ -28,7 +28,7 @@ if ($hidden == 'false'){
 		?>
 
 		<?php
-		if(loggedin()){
+		if($user->loggedin()){
 			$query = "SELECT status FROM threadsection where thread_id=$thread_id";
 			$query_run = mysql_query($query);
 			$result = mysql_result($query_run, 0);

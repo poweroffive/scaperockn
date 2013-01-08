@@ -2,7 +2,7 @@
 
 require_once "core.inc.php";
 
-if(loggedin()){
+if($user->loggedin()){
 	header('Location: index.php');
 }
 

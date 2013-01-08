@@ -41,7 +41,7 @@ for($i=0; $i < $array_length; $i+=4){
 }
 ?>
 <?php 
-if(loggedin()){
+if($user->loggedin()){
 	?>
 	<p><a href="index.php?forumid=<?php echo $forum_id; ?>&reply=true">Create new Thread</a></p>
 	<?php

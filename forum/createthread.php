@@ -6,7 +6,7 @@ $redirect = rtrim($http_referer, "true");
 if(!empty($_POST['subject']) && !empty($_POST['message'])){
 
 $forum_id = $_SESSION['forumid'];
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['id'];
 $subject = $_POST['subject'];
 $message = $_POST['message'];
 $date = date('Y-m-d H:i:s');

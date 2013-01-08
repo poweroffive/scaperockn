@@ -1,7 +1,7 @@
 <article>
 <?php 
 
-if(loggedin()){
+if($user->loggedin()){
 	echo "Hello ".$_SESSION['name'].'<br>';
 } else {
 	echo "Please log in <a href='login.php'>here</a><br>";

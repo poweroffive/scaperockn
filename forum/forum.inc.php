@@ -16,11 +16,11 @@
 		$_SESSION['threadid'] = $threadid;
 	}
 	
-	if(loggedin() && $_GET['forumid'] && $_GET['reply']) {
+	if($user->loggedin() && $_GET['forumid'] && $_GET['reply']) {
 		//	Starting a new thread
 		include 'newthread.php';
 
-	} elseif ( loggedin() && !empty($_GET['deletepost'])) {
+	} elseif ( $user->loggedin() && !empty($_GET['deletepost'])) {
 		// deleting a post
 		require_once "deletepost.php";
 
@@ -34,7 +34,7 @@
 	} elseif($_GET['threadid']) {
 		//Not Found page for those tampering with
 		include 'notfound.php';
-	} else{
+	} else {
 		// Displaying the forum sections
 		include 'forums.php';
 	}

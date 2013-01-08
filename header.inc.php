@@ -7,8 +7,8 @@
 
 <?php
 
-	if(loggedin()){
-		$username = getuserfield('Username');
+	if($user->loggedin()){
+		$username = $user->getName();
 		echo '<p>Hello '.$username.'</p>';
 ?>
 		<p><a class='left' href='/logout.php'>Log Out</a></p>

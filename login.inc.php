@@ -19,9 +19,9 @@
                                 if($query_num_rows == 0 ) {
                                         echo "Please enter a valid Username and Password.";
                                 } elseif($query_num_rows == 1) {
-                                        $user_id = $query_array['Id'];
-                                        $team = $query_array['Team'];
-                                        $_SESSION['user_id'] = $user_id;
+                                        $_SESSION['id'] = $query_array['Id'];
+                                        $_SESSION['team'] = $query_array['Team'];
+                                        $_SESSION['name'] = $query_array['Username'];
                                         if ($team === 'Media') {
                                                 $user = new Media($query_array['Username']);
                                                 $user->getTeamName();
