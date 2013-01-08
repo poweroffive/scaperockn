@@ -14,8 +14,6 @@ class base {
 		$http_referer = $_SERVER['HTTP_REFERER'];
 		if($this->Connect()){
 			echo "There has been an error, please contact the site admin.";
-		} else {
-			echo $this->db_host;
 		}
 	}
 

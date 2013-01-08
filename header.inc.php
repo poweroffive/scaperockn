@@ -22,4 +22,5 @@
 	}
 
 ?>
+<img class="header" src="http://placehold.it/850x150">
 </header>

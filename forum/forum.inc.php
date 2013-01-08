@@ -32,7 +32,7 @@
 		// Displaying threads in a forum section
 		include 'threads.php';
 	} elseif($_GET['threadid']) {
-		//Not Found page for those tampering with links
+		//Not Found page for those tampering with
 		include 'notfound.php';
 	} else{
 		// Displaying the forum sections

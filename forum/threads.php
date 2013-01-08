@@ -12,6 +12,7 @@ while($assoc = mysql_fetch_assoc($query_run)){
 	array_push($query_array, $assoc['thread_id']);
 	array_push($query_array, $assoc['status']);
 }
+}
 echo "<a href='index.php'>Forums</a>";
 	//print_r($query_array);
 ?>
@@ -19,6 +20,7 @@ echo "<a href='index.php'>Forums</a>";
 
 <h3>List of Threads</h3>
 <?php
+if($num_rows > 0){
 $array_length = count($query_array);
 for($i=0; $i < $array_length; $i+=4){
 	$z = $i+1;
@@ -34,14 +36,17 @@ for($i=0; $i < $array_length; $i+=4){
 		echo "<div><p><a href='index.php?forumid=$forum_id&threadid=$query_array[$y]'>$query_array[$i]</a> Author: $query_array[$z]</p></div>";
 	}
 }
+} else {
+	echo "No threads exist for this forum";
+}
 ?>
 <?php 
 if(loggedin()){
 	?>
-	<a href="index.php?forumid=<?php echo $forum_id; ?>&reply=true">Create new Thread</a>
+	<p><a href="index.php?forumid=<?php echo $forum_id; ?>&reply=true">Create new Thread</a></p>
 	<?php
-}
 } else {
-	include 'notfound.php';
+	echo "<P>Please <a href='/login.php'>login</a> to create a thread</P>";
 }
+
 ?>

@@ -18,9 +18,11 @@ article {
 	position: relative;
 	left: 165px;
 	bottom: 20px;
+	.mixin (@a)
 }
 
 footer {
+	clear: both;
 	text-align: center;
 }
 
@@ -80,4 +82,8 @@ a:visited {
 
 .community{
 	color:green;
+}
+
+.header {
+	padding: 0 25px;
 }
