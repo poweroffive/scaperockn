@@ -4,7 +4,7 @@
 		$team = $_SESSION['team'];
 		$user = new $team($_SESSION['name']);
 	} else {
-		$user = new baseUser($_SESSION['name']);
+		$user = new Member($_SESSION['name']);
 	}
 
 	if(isset($_GET['forumid'])){

@@ -77,20 +77,35 @@ class Member extends base {
 	}
 }
 
-class SL extends Member {
-	function __construct($persons_name) {
-		parent::__construct();
-	}
-}
-
 class Media extends Member {
-	function __construct($persons_name) {
+	function __construct() {
 		parent::__construct();
 	}
 }
 
 class Community extends Member {
-	function __construct($persons_name) {
+	function __construct() {
+		parent::__construct();
+	}
+
+	function deleteThread(){
+		echo "<a href='delete.php'>Hide/Unhide this thread</a>";
+	}
+
+	function lockThread(){
+		echo " <a href='lock.php'>Lock/Unlock this thread</a>";
+	}
+
+	function deletePost($post_id){
+		return "<a href='index.php?deletepost=$post_id&show=hidden'>hide</a>";
+	}
+	function showPost($postid){
+		return "<a href='index.php?deletepost=$postid&show=open'>Show</a>";
+	}
+}
+
+class SL extends Community {
+	function __construct() {
 		parent::__construct();
 	}
 }

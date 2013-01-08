@@ -17,11 +17,17 @@ if ($hidden == 'false'){
 
 	if($num_rows = mysql_num_rows($query_run) > 0){
 		while($assoc = mysql_fetch_assoc($query_run)){
+			//var_dump($assoc);
 			
-			if($teamname == "SL" || $_SESSION['team'] == "Community"){
-				echo '<div><p>'.$assoc['Username'] . ' posted ' . $assoc['message'] . ' on ' . $assoc['postedDate'] . $user->deletePost($assoc['post_id']).'</p></div>';
+			
+			if($assoc['status'] == 'hidden' && ($user->getTeamName() == 'Community' || $user->getTeamName() == 'SL')){
+				echo '<div><p>Hidden Post:'.$assoc['Username'] . ' posted ' . $assoc['message'] . ' on ' . $assoc['postedDate'] . $user->showPost($assoc['post_id']).'</p></div>';
+			} elseif($assoc['status'] == 'hidden') {
+				echo "Post Hidden";
+			} elseif($teamname == "SL" || $_SESSION['team'] == "Community"){
+				echo '<div><p>'.$assoc['Username'] . ' posted ' . $assoc['message'] . ' on ' . $assoc['postedDate'] . $user->deletePost($assoc['post_id']).'</p></div>'; 
 			} else {
-				echo '<div><p>'.$assoc['Username'] . ' posted ' . $assoc['message'] . ' on ' . $assoc['postedDate'] .' </p></div>';
+			echo '<div><p>'.$assoc['Username'] . ' posted ' . $assoc['message'] . ' on ' . $assoc['postedDate'] .' </p></div>';
 			}
 		}
 		
@@ -59,3 +65,4 @@ if ($hidden == 'false'){
 		require_once "notfound.php";
 	}
 }
+?>

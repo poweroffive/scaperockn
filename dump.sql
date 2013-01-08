@@ -42,7 +42,7 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES ('Admin','823da4223e46ec671a10ea13d7823534','I am cool','','1994-03-19','','Das Wanderer',1,'SL'),('Chris','823da4223e46ec671a10ea13d7823534','','','2012-11-05','','',2,'Community'),('Fred','823da4223e46ec671a10ea13d7823534','','','2012-11-05','','',3,'Media'),('Dan','823da4223e46ec671a10ea13d7823534','','','2012-11-09','','',4,'User'),('charlie','823da4223e46ec671a10ea13d7823534','','','2012-11-29','','',5,'Member');
+INSERT INTO `Users` VALUES ('Admin','823da4223e46ec671a10ea13d7823534','I am cool','','1994-03-19','','Das Wanderer',1,'SL'),('Chris','823da4223e46ec671a10ea13d7823534','','','2012-11-05','','',2,'Community'),('Fred','823da4223e46ec671a10ea13d7823534','','','2012-11-05','','',3,'Media'),('Dan','823da4223e46ec671a10ea13d7823534','','','2012-11-09','','',4,'Member'),('charlie','823da4223e46ec671a10ea13d7823534','','','2012-11-29','','',5,'Member');
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `postsection` (
   `forum_id` int(11) DEFAULT NULL,
   `status` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`post_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=69 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `postsection` (
 
 LOCK TABLES `postsection` WRITE;
 /*!40000 ALTER TABLE `postsection` DISABLE KEYS */;
-INSERT INTO `postsection` VALUES (48,20,1,'dgesdv','2012-12-27 12:39:07',1,'open'),(47,20,1,'iohsehiogewe','2012-12-27 12:39:00',1,'hidden'),(46,19,1,'1gihowegioh','2012-12-26 18:12:38',1,'open'),(45,18,1,'Post hidden','2012-12-26 17:38:18',1,'open'),(44,17,1,'Post hidden','2012-12-26 13:46:42',1,'open'),(43,17,2,'Post hidden','2012-12-26 13:45:17',1,'open'),(42,17,2,'Post hidden','2012-11-29 14:02:19',1,'open'),(41,16,1,'Post hidden','2012-11-28 16:29:29',2,'open'),(40,16,1,'Post hidden','2012-11-28 16:29:12',2,'open'),(39,15,1,'Post hidden','2012-11-28 16:23:09',1,'open'),(38,15,1,'Post hidden','2012-11-28 16:22:34',1,'open'),(37,14,1,'Post hidden','2012-11-28 15:58:52',1,'open'),(36,13,1,'Post hidden','2012-11-13 10:54:07',2,'open'),(35,12,1,'Inappropriate. Locked.','2012-11-12 17:36:43',1,'open'),(34,12,2,'Post hidden','2012-11-12 17:36:24',1,'open'),(33,11,1,'Unappropriate. Locked.','2012-11-12 17:35:45',1,'open'),(32,11,1,'Post hidden','2012-11-12 17:35:18',1,'open'),(49,20,1,'wwqfa','2012-12-27 16:44:52',1,'open'),(50,21,1,'Hello','2012-12-28 11:17:12',1,'open'),(51,21,1,'Thread locked','2012-12-28 12:06:04',1,'open'),(52,22,4,'Surrender monkeys','2012-12-28 12:15:36',1,'hidden'),(53,22,1,'3wef','2012-12-28 12:16:27',1,'hidden'),(54,22,1,'Thread locked','2012-12-28 12:16:34',1,'open'),(55,22,1,'Thread re-opened','2012-12-28 12:17:51',1,'open'),(56,22,1,'Thread Locked again','2012-12-28 13:39:07',1,'hidden'),(57,23,1,'Hello','2012-12-28 13:39:07',2,'open'),(58,24,1,'Hellos','2013-01-02 15:57:48',2,'open'),(59,24,3,'Hi Admin!','2013-01-02 16:24:11',2,'open'),(60,23,3,'Hai Der Admin!','2013-01-02 16:34:03',2,'open'),(61,22,2,'In line with our Community policy this thread has been escalated to SL Review.','2013-01-04 15:43:18',1,'open');
+INSERT INTO `postsection` VALUES (48,20,1,'dgesdv','2012-12-27 12:39:07',1,'open'),(47,20,1,'iohsehiogewe','2012-12-27 12:39:00',1,'hidden'),(46,19,1,'1gihowegioh','2012-12-26 18:12:38',1,'open'),(45,18,1,'Post hidden','2012-12-26 17:38:18',1,'open'),(44,17,1,'Post hidden','2012-12-26 13:46:42',1,'open'),(43,17,2,'Post hidden','2012-12-26 13:45:17',1,'open'),(42,17,2,'Post hidden','2012-11-29 14:02:19',1,'open'),(41,16,1,'Post hidden','2012-11-28 16:29:29',2,'open'),(40,16,1,'Post hidden','2012-11-28 16:29:12',2,'open'),(39,15,1,'Post hidden','2012-11-28 16:23:09',1,'open'),(38,15,1,'Post hidden','2012-11-28 16:22:34',1,'open'),(37,14,1,'Post hidden','2012-11-28 15:58:52',1,'open'),(36,13,1,'Post hidden','2012-11-13 10:54:07',2,'open'),(35,12,1,'Inappropriate. Locked.','2012-11-12 17:36:43',1,'open'),(34,12,2,'Post hidden','2012-11-12 17:36:24',1,'open'),(33,11,1,'Unappropriate. Locked.','2012-11-12 17:35:45',1,'open'),(32,11,1,'Post hidden','2012-11-12 17:35:18',1,'open'),(49,20,1,'wwqfa','2012-12-27 16:44:52',1,'open'),(50,21,1,'Hello','2012-12-28 11:17:12',1,'open'),(51,21,1,'Thread locked','2012-12-28 12:06:04',1,'open'),(52,22,4,'Surrender monkeys','2012-12-28 12:15:36',1,'hidden'),(53,22,1,'3wef','2012-12-28 12:16:27',1,'hidden'),(54,22,1,'Thread locked','2012-12-28 12:16:34',1,'open'),(55,22,1,'Thread re-opened','2012-12-28 12:17:51',1,'open'),(56,22,1,'Thread Locked again','2012-12-28 13:39:07',1,'hidden'),(57,23,1,'Hello','2012-12-28 13:39:07',2,'open'),(58,24,1,'Hellos','2013-01-02 15:57:48',2,'open'),(59,24,3,'Hi Admin!','2013-01-02 16:24:11',2,'open'),(60,23,3,'Hai Der Admin!','2013-01-02 16:34:03',2,'open'),(61,22,2,'In line with our Community policy this thread has been escalated to SL Review.','2013-01-04 15:43:18',1,'hidden'),(62,24,1,'Locked to prevent gravedigging.','2013-01-08 15:29:21',2,''),(63,21,1,'','2013-01-08 16:43:29',1,'open'),(64,21,1,'','2013-01-08 16:43:31',1,'open'),(65,21,0,'Hello','2013-01-08 16:53:51',1,'open'),(66,21,5,'Hello','2013-01-08 16:54:40',1,'open'),(67,25,5,'Hrewrere','2013-01-08 16:57:35',1,'open'),(68,25,5,'Hello','2013-01-08 17:08:39',1,'open');
 /*!40000 ALTER TABLE `postsection` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,7 +115,7 @@ CREATE TABLE `threadsection` (
   `forum_id` int(11) DEFAULT NULL,
   `status` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`thread_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +124,7 @@ CREATE TABLE `threadsection` (
 
 LOCK TABLES `threadsection` WRITE;
 /*!40000 ALTER TABLE `threadsection` DISABLE KEYS */;
-INSERT INTO `threadsection` VALUES (21,1,'Hello','2012-12-28 11:17:12',1,'locked'),(19,1,'grhwgioh','2012-12-26 18:12:38',1,'closed'),(20,1,'Hegsehisg','2012-12-27 12:39:00',1,'closed'),(22,4,'Cheese eating ','2012-12-28 12:15:36',1,'closed'),(23,1,'Hello','2013-01-02 11:24:27',2,'open'),(24,1,'Testin','2013-01-02 15:57:48',2,'open');
+INSERT INTO `threadsection` VALUES (21,1,'Hello','2012-12-28 11:17:12',1,'locked'),(19,1,'grhwgioh','2012-12-26 18:12:38',1,'closed'),(20,1,'Hegsehisg','2012-12-27 12:39:00',1,'closed'),(22,4,'Cheese eating ','2012-12-28 12:15:36',1,'closed'),(23,1,'Hello','2013-01-02 11:24:27',2,'open'),(24,1,'Testin','2013-01-02 15:57:48',2,'open'),(25,5,'Hello','2013-01-08 16:57:35',1,'open');
 /*!40000 ALTER TABLE `threadsection` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -137,4 +137,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-01-04 17:57:36
+-- Dump completed on 2013-01-08 18:19:48
