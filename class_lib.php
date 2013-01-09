@@ -24,6 +24,14 @@ class base {
 			return true;
 		}
 	}
+	
+	function mysqlescape($item){
+		$mysql = mysql_escape_string($item);
+		$html = htmlspecialchars($mysql);
+		$encode = urldecode($html);
+		$slashed = addslashes($encode);
+		return $html;
+	}
 
 	function Connect(){
 		mysql_connect($this->mysql_host, $this->mysql_user, $this->mysql_pass) && mysql_select_db($this->mysql_db); 

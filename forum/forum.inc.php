@@ -1,12 +1,5 @@
 <article>
 	<?php
-	if(isset($_SESSION['team'])){
-		$team = $_SESSION['team'];
-		$user = new $team($_SESSION['name']);
-	} else {
-		$user = new Member($_SESSION['name']);
-	}
-
 	if(isset($_GET['forumid'])){
 		$forumid = $_GET['forumid'];
 		$_SESSION['forumid'] = $forumid;
@@ -38,5 +31,6 @@
 		// Displaying the forum sections
 		include 'forums.php';
 	}
+
 		?>
 </article>

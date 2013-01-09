@@ -7,8 +7,8 @@ if(!empty($_POST['subject']) && !empty($_POST['message'])){
 
 $forum_id = $_SESSION['forumid'];
 $user_id = $_SESSION['id'];
-$subject = $_POST['subject'];
-$message = $_POST['message'];
+$subject = $user->mysqlescape($_POST['subject']);
+$message = $user->mysqlescape($_POST['message']);
 $date = date('Y-m-d H:i:s');
 
 
@@ -25,6 +25,12 @@ $query_run = mysql_query($query);
 
 header("Location:$redirect");
 } else {
-	include "notfound.php";
+	require_once "../core.inc.php";
+require '../header.inc.php';
+require '../nav.inc.php';
+
+include "notfound.php";
+
+require '../footer.inc.php';
 }
 ?>
