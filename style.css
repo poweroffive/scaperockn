@@ -87,3 +87,34 @@ a:visited {
 .header {
 	padding: 0 25px;
 }
+
+label {
+	position: relative;
+}
+
+label#message {
+	right: 10px;
+	bottom: 88px
+}
+
+label#subject {
+	right: 3px;
+	bottom: 1px;
+}
+
+input#subject {
+	position: relative;
+	width: 500px;
+	left: 7px;
+}
+
+textarea#message {
+	width: 500px;
+	height: 100px;
+}
+
+.smbt {
+	position:relative;
+	right: 300px;
+	top:20px;
+}

@@ -5,7 +5,7 @@ $teamname = $user->getTeamName();
 $query = "SELECT postsection.post_id, postsection.message, postsection.postedDate, Users.Username, postsection.status FROM postsection JOIN Users JOIN threadsection JOIN forumsection ON postsection.poster_id=Users.Id AND postsection.thread_id=threadsection.thread_id AND postsection.forum_id=forumsection.forum_id WHERE postsection.thread_id=$thread_id AND postsection.forum_id=$forum_id ORDER BY postsection.post_id";
 $query_run = mysql_query($query);
 
-$hidden = $user->hidden($forumid, $threadid, $team);
+$hidden = $user->hidden($forumid, $threadid, $teamname);
 
 if ($hidden == 'false'){
 	echo "<a href='index.php?forumid=$forum_id'>Up a level</a>";
@@ -20,49 +20,47 @@ if ($hidden == 'false'){
 			//var_dump($assoc);
 			
 			
-			if($assoc['status'] == 'hidden' && ($user->getTeamName() == 'Community' || $user->getTeamName() == 'SL')){
+			if($assoc['status'] == 'hidden' && ($teamname == 'Community' || $teamname == 'SL')){
 				echo '<div><p>Hidden Post:'.$assoc['Username'] . ' posted ' . $assoc['message'] . ' on ' . $assoc['postedDate'] . $user->showPost($assoc['post_id']).'</p></div>';
 			} elseif($assoc['status'] == 'hidden') {
 				echo "Post Hidden";
 			} elseif($teamname == "SL" || $_SESSION['team'] == "Community"){
 				echo '<div><p>'.$assoc['Username'] . ' posted ' . $assoc['message'] . ' on ' . $assoc['postedDate'] . $user->deletePost($assoc['post_id']).'</p></div>'; 
 			} else {
-			echo '<div><p>'.$assoc['Username'] . ' posted ' . $assoc['message'] . ' on ' . $assoc['postedDate'] .' </p></div>';
+				echo '<div><p>'.$assoc['Username'] . ' posted ' . $assoc['message'] . ' on ' . $assoc['postedDate'] .' </p></div>';
 			}
 		}
 		
 		?>
 
 		<?php
-		if($user->loggedin()){
 			$query = "SELECT status FROM threadsection where thread_id=$thread_id";
 			$query_run = mysql_query($query);
 			$result = mysql_result($query_run, 0);
 
-			if($result == "open" || $teamname == "SL" || $_SESSION['team'] == "Community" ){
+			if($result == "open" && $user->loggedin() || $teamname == "SL" || $teamname == "Community" ){
 				?>
 				<form method="POST" action="redirect.php">
 					<textarea name="message" maxlength="200"></textarea>
 					<input type="submit" value="Reply">
 				</form>
 				<?php
-			} 
+			} else {
+				echo 'Please <a href="/login.php">log in</a> to reply.';
+			}
 			
 			if($result == "locked"){
 				echo "<h5>Thread has been locked</h5>";
 			} elseif($result == "closed"){
 				echo "<h5>Thread is currently hidden</h5>";
 			}
-			if ($teamname == "SL" || $_SESSION['team'] == "Community") {
+			if ($teamname == "SL" || $teamname == "Community") {
 				$_SESSION['status'] = $result;
 				$user->deleteThread();
 				$user->lockThread();
 			}
 		} else {
-			echo 'Please <a href="/login.php">log in</a> to reply.';
+			require_once "notfound.php";
 		}
-	} else {
-		require_once "notfound.php";
 	}
-}
-?>
+	?>
