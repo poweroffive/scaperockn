@@ -24,13 +24,13 @@ if ($hidden == 'false'){
 			
 			
 			if($assoc['status'] == 'hidden' && ($teamname == 'Community' || $teamname == 'SL')){
-				echo '<div><p>Hidden Post:'.$assoc['Username'] . ' posted ' . $assoc['message'] . ' on ' . $assoc['postedDate'] . $user->showPost($assoc['post_id']).'</p></div>';
+				echo '<div class='.$teamname.'><p>'.$assoc['Username'] . '<br>'.$user->getpostcount($assoc['Id']).'</div><div class=content>Hidden message:' . $assoc['message'] . ' on ' . $assoc['postedDate'] . $user->deletePost($assoc['post_id']).'</p></div>'; 
 			} elseif($assoc['status'] == 'hidden') {
 				echo "Post Hidden";
 			} elseif($teamname == "SL" || $teamname == "Community"){
-				echo '<div><p>'.$assoc['Username'] . ' has made '.$user->getpostcount($assoc['Id']).' posts, posted ' . $assoc['message'] . ' on ' . $assoc['postedDate'] . $user->deletePost($assoc['post_id']).'</p></div>'; 
+				echo '<div class='.$teamname.'><p>'.$assoc['Username'] . '<br>'.$user->getpostcount($assoc['Id']).'</div><div class=content>' . $assoc['message'] . ' on ' . $assoc['postedDate'] . $user->deletePost($assoc['post_id']).'</p></div>'; 
 			} else {
-				echo '<div><p>'.$assoc['Username'] . ' posted ' . $assoc['message'] . ' on ' . $assoc['postedDate'] .' </p></div>';
+				echo '<div class='.$teamname.'><p>'.$assoc['Username'] . '<br>'.$user->getpostcount($assoc['Id']).'</div><div class=content>' . $assoc['message'] . ' on ' . $assoc['postedDate'].'</p></div>'; 
 			}
 		}
 		
