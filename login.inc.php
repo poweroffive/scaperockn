@@ -22,19 +22,7 @@
                                         $_SESSION['id'] = $query_array['Id'];
                                         $_SESSION['team'] = $query_array['Team'];
                                         $_SESSION['name'] = $query_array['Username'];
-                                        if ($team === 'Media') {
-                                                $user = new Media($query_array['Username']);
-                                                $user->getTeamName();
-                                        } elseif ($team === 'SL') {
-                                                $user = new SL($query_array['Username']);
-                                                $user->getTeamName();
-                                        } elseif ($team === 'Events') {
-                                                $user = new Events($query_array['Username']);
-                                                $user->getTeamName();
-                                        } elseif ($team === 'Community') {
-                                                $user = new Community($query_array['Username']);
-                                                $user->getTeamName();
-                                        }
+                                        header("Location: index.php");
                                 } else {
                                         echo "There has been an error. Please Contact the site admin for support.";
                                 }
@@ -50,11 +38,4 @@
                 <input type="password" name="passwrd">
                 <input type="submit" value="Submit">
         </form>
-        <?php
-
-        if(!empty($_SESSION['team'])){
-                header("Location: index.php");
-        }
-
-        ?>
 </article>

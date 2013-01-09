@@ -9,16 +9,14 @@ header {
 }
 
 nav {
-	width: 200px;
-	height:0;
+	width: 0;
+	float: left;
 }
 
 article {
 	width: 700px;
 	position: relative;
 	left: 165px;
-	bottom: 20px;
-	.mixin (@a)
 }
 
 footer {
@@ -37,6 +35,7 @@ ul {
 
 ul li {
 	list-style-type: none;
+	width: 100px;
 }
 
 .container {
@@ -117,4 +116,10 @@ textarea#message {
 	position:relative;
 	right: 300px;
 	top:20px;
+	margin-bottom: 15px;
+}
+
+.qreply {
+	width: 600px;
+	height: 100px;
 }

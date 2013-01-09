@@ -41,19 +41,18 @@ if ($hidden == 'false'){
 			if($result == "open" && $user->loggedin() || $teamname == "SL" || $teamname == "Community" ){
 				?>
 				<form method="POST" action="redirect.php">
-					<textarea name="message" maxlength="200"></textarea>
-					<input type="submit" value="Reply">
+					<textarea name="message" class="qreply" maxlength="200"></textarea>
+					<input type="submit" class="smbt" value="Reply">
 				</form>
 				<?php
-			} else {
-				echo 'Please <a href="/login.php">log in</a> to reply.';
-			}
-			
-			if($result == "locked"){
+			} elseif($result == "locked") {
 				echo "<h5>Thread has been locked</h5>";
 			} elseif($result == "closed"){
 				echo "<h5>Thread is currently hidden</h5>";
-			}
+			} else {
+				echo 'Please <a href="/login.php">log in</a> to reply.';
+			} 
+			
 			if ($teamname == "SL" || $teamname == "Community") {
 				$_SESSION['status'] = $result;
 				$user->deleteThread();
