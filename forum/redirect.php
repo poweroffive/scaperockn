@@ -3,7 +3,6 @@
 require '../core.inc.php';
 
 $redirect = rtrim($http_referer, "true");
-//$message = htmlentities($_POST['message']);
 $message = $user->mysqlescape($_POST['message']);
 
 $date = date('Y-m-d H:i:s');
