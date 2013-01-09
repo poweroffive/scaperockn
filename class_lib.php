@@ -83,6 +83,21 @@ class Member extends base {
 			}
 		}
 	}
+
+	public function getpostcount($id){
+		$posts = "SELECT Posts from Users WHERE Id=$id";
+		$postquery = mysql_query($posts);
+		return mysql_result($postquery, 0);
+	}
+
+	public function gettop($pagenum){
+		return $top = $pagenum * 10;
+	}
+
+		public function getbottom($pagenum){
+		$top = $this->gettop($pagenum);
+		return $bottom = $top - 9;
+	}
 }
 
 class Media extends Member {

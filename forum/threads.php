@@ -28,14 +28,14 @@ if($num_rows > 0){
 		$status = $i+3;
 		if($query_array[$status] == 'closed'){
 			if($team == "SL" || $team == "Community"){
-				echo "<div><p>Hidden Thread: <a href='index.php?forumid=$forum_id&threadid=$query_array[$y]'>$query_array[$i]</a> Author: $query_array[$z]</p></div>";
+				echo "<div><p>Hidden Thread: <a href='index.php?forumid=$forum_id&threadid=$query_array[$y]&page=1'>$query_array[$i]</a> Author: $query_array[$z]</p></div>";
 			} else {
 				echo "<div><p>Thread Hidden</p></div>";
 			}
 		} elseif($query_array[$status] == 'locked'){
-			echo "<div><p>Locked Thread: <a href='index.php?forumid=$forum_id&threadid=$query_array[$y]'>$query_array[$i]</a> Author: $query_array[$z]</p></div>";
+			echo "<div><p>Locked Thread: <a href='index.php?forumid=$forum_id&threadid=$query_array[$y]&page=1'>$query_array[$i]</a> Author: $query_array[$z]</p></div>";
 		} else {
-			echo "<div><p><a href='index.php?forumid=$forum_id&threadid=$query_array[$y]'>$query_array[$i]</a> Author: $query_array[$z]</p></div>";
+			echo "<div><p><a href='index.php?forumid=$forum_id&threadid=$query_array[$y]&page=1'>$query_array[$i]</a> Author: $query_array[$z]</p></div>";
 		}
 	}
 } else {
