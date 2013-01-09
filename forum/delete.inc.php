@@ -2,8 +2,7 @@
 	<?php
 
 	if($user->loggedin()){
-		$redirect = rtrim($http_referer, "true");
-
+		$http_referer;
 		$forum_id = $_SESSION['forumid'];
 		$thread_id = $_SESSION['threadid'];
 		$date = date('Y-m-d H:i:s');
@@ -13,10 +12,10 @@
 			$query = "UPDATE threadsection SET status='open' WHERE thread_id=$thread_id";
 		}
 		if(mysql_query($query)){
-			echo "Click <a href='index.php?forumid=$forum_id'>here</a> to return to forums.";
+			echo "Click <a href='$http_referer'>here</a> to return to forums.";
 		} else {
 			echo "There was an issue please contact the site admin";
-			echo "Click <a href='$redirect'>here</a> to return to thread.";
+			echo "Click <a href='$http_referer'>here</a> to return to thread.";
 		}
 	} else {
 		include 'notfound.php';

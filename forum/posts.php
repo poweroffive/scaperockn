@@ -11,7 +11,7 @@ $query_run = mysql_query($query);
 $hidden = $user->hidden($forumid, $threadid, $teamname);
 
 if ($hidden == 'false'){
-	echo "<a href='index.php?forumid=$forum_id'>Up a level</a>";
+	echo "<a href='index.php?forumid=$forum_id&page=1'>Up a level</a>";
 
 	?>
 

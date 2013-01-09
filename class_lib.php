@@ -96,7 +96,7 @@ class Member extends base {
 
 		public function getbottom($pagenum){
 		$top = $this->gettop($pagenum);
-		return $bottom = $top - 9;
+		return $bottom = $top - 10;
 	}
 }
 

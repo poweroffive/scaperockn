@@ -1,7 +1,10 @@
 <?php
 $_SESSION['forumid'] = $forumid;
 $forum_id = $forumid;
-$query = "SELECT threadsection.subject, Users.Username, threadsection.thread_id, threadsection.status from threadsection join forumsection JOIN Users on threadsection.forum_id=forumsection.forum_id AND Users.Id=threadsection.author_id where threadsection.forum_id=$forum_id ORDER BY threadsection.thread_id DESC;";
+$page = $_GET['page'];
+$bottom = $user->getbottom($page);
+$top = $user->gettop($page);
+$query = "SELECT threadsection.subject, Users.Username, threadsection.thread_id, threadsection.status from threadsection join forumsection JOIN Users on threadsection.forum_id=forumsection.forum_id AND Users.Id=threadsection.author_id where threadsection.forum_id=$forum_id ORDER BY threadsection.thread_id DESC LIMIT $bottom, $top";
 $query_run = mysql_query($query);
 $num_rows = mysql_num_rows($query_run);
 $query_array = array();

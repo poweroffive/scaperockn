@@ -17,6 +17,6 @@ $array_length = count($query_array);
 
 for($i=0; $i < $array_length; $i+=2){
 	$z = $i+1;
-	echo "<div><p><a href='index.php?forumid=$query_array[$z]'>$query_array[$i]</a></div></p>";
+	echo "<div><p><a href='index.php?forumid=$query_array[$z]&page=1'>$query_array[$i]</a></div></p>";
 }
 ?>
